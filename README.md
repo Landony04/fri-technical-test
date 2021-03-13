@@ -1,0 +1,1 @@
+# fri-technical-test

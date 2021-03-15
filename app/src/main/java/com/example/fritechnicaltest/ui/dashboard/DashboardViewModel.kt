@@ -1,13 +1,21 @@
 package com.example.fritechnicaltest.ui.dashboard
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.fritechnicaltest.database.AppDatabase
+import com.example.fritechnicaltest.database.PhotoDb
 
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel(application: Application) :
+    AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    private var photos: LiveData<List<PhotoDb>?>? = null
+
+    init {
+        photos = AppDatabase.getDatabase(application).photoDao().getAll()
     }
-    val text: LiveData<String> = _text
+
+    fun getBlogPosts(): LiveData<List<PhotoDb>?>? {
+        return photos
+    }
 }

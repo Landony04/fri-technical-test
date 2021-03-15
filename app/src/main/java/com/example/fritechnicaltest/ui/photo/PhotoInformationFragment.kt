@@ -128,7 +128,7 @@ class PhotoInformationFragment : Fragment() {
 
             return if (year < currentYear) {
                 val interval = currentYear - year
-                if (interval == 1) "Hace $interval años" else "Hace $interval años"
+                if (interval == 1) "Hace $interval año" else "Hace $interval años"
             } else if (month < currentMonth) {
                 val interval = currentMonth - month
                 if (interval == 1) "Hace $interval mes" else "Hace $interval meses"
